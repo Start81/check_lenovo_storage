@@ -21,7 +21,6 @@ use warnings;
 use Monitoring::Plugin;
 use Data::Dumper;
 use REST::Client;
-use Data::Dumper;
 use JSON;
 use utf8; 
 use MIME::Base64;
