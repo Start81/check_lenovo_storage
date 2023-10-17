@@ -165,7 +165,6 @@ my $id;
 my %hw_inventory;
 while (exists ($storage_systems->[$i])){
         $id=$storage_systems->[$i]->{'id'};
-		#https://10.200.136.59:8443/devmgr/v2/storage-systems/1/hardware-inventory
         #get storage systems hardware inventory
         $url = "$url$id/hardware-inventory";
         $client->addHeader('Authorization', 'Basic ' . encode_base64("$o_login:$o_pwd"));
@@ -176,7 +175,6 @@ while (exists ($storage_systems->[$i])){
         }
         $hw_rep = $client->{_res}->decoded_content;
         $hardware = from_json($hw_rep);
-
         foreach my $items (@check_items){
             verb($items);
             if (exists  ($hardware->{$items})){
@@ -194,7 +192,6 @@ while (exists ($storage_systems->[$i])){
                     }
                     $j=$j+1;
                 }
-                
                 $hw_inventory{$items}=$j;
             }
         }
